@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<h1>Guest List</h1>
+
+<body>
+
+<span>
+
+<input id = "nameOfGuest" type = "text"></input>
+
+<button type = "button" id = "submit" onclick = "submitName()">Click Me To Submit!</button>
+
+</span>
+
+<p id = "display_names1"></p>
+
+<br>
+
+<button type = "button" id = "show" onclick = "showName()">Click Me To Show!</button>
+
+<p id = "display_names2"></p>
+
+<br>
+
+<span>
+
+    <input id = "nameOfGuestToSearch" type = "text"></input>
+
+    <button type= "button" id = "search" onclick = "searchName()">Click Me To Show!</button>
+
+</span>
+
+<p id = "display_names3"></p>
+
+<script>
+    //Function 1 is to submit the names and have it printed in an array.
+    var guestName = [];
+
+    function submitName() {
+
+var inputText = document.getElementById("nameOfGuest").value;
+
+guestName.push(inputText);
+
+console.log(guestName);
+
+document.getElementById("display_names1").innerHTML = guestName;
+
+    };
+
+    //Function 2 shows the names in seperate lines
+    function showName() {
+
+        var fullDisplay ="";
+
+        for (var i = 0; i < guestName.length; i++) {
+
+            fullDisplay = fullDisplay.concat(guestName[i] +"<br>");
+
+            window.alert(fullDisplay);
+        }
+        document.getElementById("display_names2").innerHTML = fullDisplay;
+
+
+    }
+    //Function 3 searches the name to see whether that element is included in the array. It will return a boolean value.
+    
+    function searchName() {
+
+        var search_name = document.getElementById("nameOfGuestToSearch").value;
+
+        var specific_name = guestName.includes(search_name);
+
+        window.alert(specific_name);
+
+        document.getElementById("display_names3").innerHTML = specific_name;
+
+        console.log(specific_name);
+
+    }
+
+</script>
+<style>
+    body { 
+    background-color: aquamarine;
+    font-family: Verdana;
+    text-align: center;
+    
+    }
+</style>
+
+</body>
+
+</html>
